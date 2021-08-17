@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -75,6 +76,15 @@ public class Home_Manage {
 			e.printStackTrace();
 		}
 	}
+	
+	@FXML
+    void account(MouseEvent event) throws IOException{
+		FXMLLoader loader=new FXMLLoader();
+		loader.setLocation(getClass().getResource("../../ui/manage/account.fxml"));
+		Parent parent=loader.load();
+		mainPane.setCenter(parent);
+
+    }
 	
 	
 	private static String emp_id, name,phone,email,username,title_name,date;
@@ -141,5 +151,16 @@ public class Home_Manage {
 		a3=title.getText();
 		System.out.println(a1+" / "+a2+" / "+a3);
 	}
+	private void loadUI(String ui) {
+    	Parent root=null;
+    	try {
+			root=FXMLLoader.load(getClass().getResource("../../ui/manage/"+ ui+".fxml"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	mainPane.setCenter(root);
+    		
+    }
 
 }

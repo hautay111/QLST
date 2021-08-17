@@ -5,9 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import app.model.Account;
 import app.model.Bill;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.collections.ObservableList;;
 
 public class connectDB {
 	Connection conn = null;
@@ -47,4 +48,18 @@ public class connectDB {
 	}
     
     
+    public static ObservableList<Account> getDataAccount(){
+        Connection conn = ConnectDb();
+        ObservableList<Account> list = FXCollections.observableArrayList();
+        try {
+            PreparedStatement ps = conn.prepareStatement("select employee.*,title.* from employee,title");
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()){   
+                list.add(new Account(Integer.parseInt(rs.getString("emp_id")), Integer.parseInt(rs.getString("emp_status")), rs.getString("emp_name"), rs.getString("emp_email"), rs.getString("emp_phone"), rs.getString("emp_address"), rs.getString("emp_gender"), rs.getString("emp_user"), rs.getString("emp_pass"), rs.getString("emp_address")));               
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
 }
