@@ -110,13 +110,13 @@
                      <children>
                         <ImageView fitHeight="79.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
                            <image>
-                              <Image url="@../../image/icons8-buying-96.png" />
+                              <Image url="@../../image/icons8-product-48.png" />
                            </image>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <Label alignment="CENTER" prefHeight="59.0" prefWidth="254.0" styleClass="shadow" text="Sale Manager" textFill="WHITE">
+                        <Label alignment="CENTER" prefHeight="59.0" prefWidth="254.0" styleClass="shadow" text="Product" textFill="WHITE">
                            <font>
                               <Font name="Bell MT" size="41.0" />
                            </font>

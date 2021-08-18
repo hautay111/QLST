@@ -2,19 +2,48 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1380.0" styleClass="gradient-background" stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.homepage.Home_Employee">
    <top>
       <HBox alignment="CENTER" prefHeight="84.0" prefWidth="1380.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
+            <Pane prefHeight="84.0" prefWidth="135.0">
+               <children>
+                  <Label fx:id="menu" layoutX="3.0" layoutY="35.0" onMouseClicked="#menu" prefHeight="35.0" prefWidth="74.0" text="Menu" textFill="RED">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/menu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <Label fx:id="menucolse" layoutX="3.0" layoutY="35.0" onMouseClicked="#menucolse" prefHeight="35.0" prefWidth="74.0" text="Menu" textFill="RED">
+                     <graphic>
+                        <ImageView fitHeight="27.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/menu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </children></Pane>
             <HBox alignment="CENTER" onMouseClicked="#toInformation" prefHeight="68.0" prefWidth="329.0" spacing="10.0">
                <children>
                   <ImageView fitHeight="60.0" fitWidth="60.0" onMouseClicked="#toInformation" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
@@ -74,111 +103,172 @@
          </padding>
       </HBox>
    </top>
-   <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="container" BorderPane.alignment="CENTER">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
+   <left>
+      <VBox fx:id="slider" prefHeight="616.0" prefWidth="214.0" spacing="62.0" style="-fx-background-color: #aaaa;" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets top="40.0" />
+         </padding>
          <children>
-            <HBox alignment="CENTER" prefHeight="204.0" prefWidth="1380.0" spacing="100.0">
-               <children>
-                  <VBox alignment="CENTER" onMouseClicked="#bill_employee" prefHeight="204.0" prefWidth="232.0" styleClass="btnhome">
-                     <children>
-                        <ImageView fitHeight="79.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
-                           <image>
-                              <Image url="@../../image/icons8-buying-96.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                        <Label alignment="CENTER" prefHeight="34.0" prefWidth="209.0" styleClass="shadow" text="Bill Fee" textFill="WHITE">
-                           <font>
-                              <Font name="Bell MT" size="41.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </VBox>
-                  <Pane maxHeight="-Infinity" prefHeight="100.0" prefWidth="1.0" style="-fx-background-color: white;" styleClass="line-color" />
-                  <VBox alignment="CENTER" onMouseClicked="#inventory_employee" prefHeight="204.0" prefWidth="245.0" styleClass="btnhome">
-                     <children>
-                        <ImageView fitHeight="92.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
-                           <image>
-                              <Image url="@../../image/icons8-product-48.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                        <Label alignment="CENTER" prefHeight="54.0" prefWidth="212.0" styleClass="shadow" text="Inventory" textFill="WHITE">
-                           <font>
-                              <Font name="Bell MT" size="41.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </VBox>
-               </children>
-               <VBox.margin>
-                  <Insets top="31.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="1350.0" spacing="100.0">
-               <children>
-                  <Pane maxHeight="-Infinity" prefHeight="100.0" prefWidth="1.0" style="-fx-background-color: white;" styleClass="line-color" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0" spacing="100.0">
-               <children>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="235.0" styleClass="btnhome">
-                     <children>
-                        <ImageView fitHeight="79.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
-                           <image>
-                              <Image url="@../../image/icons8-management-96.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                        <Label alignment="CENTER" prefHeight="130.0" prefWidth="243.0" styleClass="shadow" text="Change Shift" textAlignment="CENTER" textFill="WHITE" wrapText="true">
-                           <font>
-                              <Font name="Bell MT" size="41.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </VBox>
-                  <Pane maxHeight="-Infinity" prefHeight="100.0" prefWidth="1.0" style="-fx-background-color: #fff;" styleClass="line-color" />
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="248.0" styleClass="btnhome">
-                     <children>
-                        <ImageView fitHeight="79.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
-                           <image>
-                              <Image url="@../../image/icons8-settings-96.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                        <Label alignment="CENTER" prefHeight="34.0" prefWidth="209.0" styleClass="shadow" text="Settings" textFill="WHITE">
-                           <font>
-                              <Font name="Bell MT" size="41.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </VBox>
-               </children>
-            </HBox>
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" onMouseClicked="#bill_employee" prefHeight="57.0" prefWidth="222.0" style="-fx-background-color: #aaaa;" styleClass="btnhome" text="Bill Fee" textFill="#00fffb">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="66.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../image/icons8-buying-96.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" onMouseClicked="#inventory_employee" prefHeight="67.0" prefWidth="258.0" style="-fx-background-color: #aaaa;" styleClass="btnhome" text="Inventory" textFill="#00fffb">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="66.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../image/icons8-product-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="67.0" prefWidth="258.0" style="-fx-background-color: #aaaa;" styleClass="btnhome" text="Change Shift" textFill="#00fffb">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="64.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../image/icons8-management-96.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="67.0" prefWidth="258.0" style="-fx-background-color: #aaaa;" styleClass="btnhome" text="Setting" textFill="#00fffb">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="64.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../image/icons8-settings-96.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
          </children>
       </VBox>
+   </left>
+   <center>
+      <AnchorPane minHeight="-Infinity" prefHeight="616.0" prefWidth="1144.0" style="-fx-background-color: #2F2B43;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="612.0" prefWidth="492.0">
+               <children>
+                  <TextField fx:id="search_bill" layoutX="151.0" layoutY="51.0" prefHeight="32.0" prefWidth="203.0" />
+                  <Label layoutX="95.0" layoutY="55.0" prefHeight="25.0" prefWidth="42.0" text="Search" textFill="#3dff47" />
+                  <Label alignment="CENTER" layoutX="122.0" prefHeight="43.0" prefWidth="189.0" text="Bill" textAlignment="CENTER" textFill="#00ff51">
+                     <font>
+                        <Font name="System Bold" size="29.0" />
+                     </font>
+                  </Label>
+                  <VBox layoutX="36.0" layoutY="123.0" prefHeight="318.0" prefWidth="389.0">
+                     <children>
+                        <Text fill="#e45151" strokeType="OUTSIDE" strokeWidth="0.0" text="Check" />
+                        <HBox prefHeight="44.0" prefWidth="345.0" spacing="3.0">
+                           <children>
+                              <Label prefHeight="32.0" prefWidth="113.0" text="Product Code :" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="text_code" prefHeight="32.0" prefWidth="253.0" text="product code" textFill="#16c9ff" />
+                           </children>
+                           <padding>
+                              <Insets bottom="3.0" left="14.0" right="1.0" top="4.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="44.0" prefWidth="345.0" spacing="3.0">
+                           <children>
+                              <Label prefHeight="32.0" prefWidth="119.0" text="Product Name :" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="text_name" prefHeight="32.0" prefWidth="253.0" text="product name" textFill="#16c9ff" />
+                           </children>
+                           <padding>
+                              <Insets bottom="3.0" left="14.0" right="1.0" top="4.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="44.0" prefWidth="374.0" spacing="3.0">
+                           <children>
+                              <Label prefHeight="32.0" prefWidth="127.0" text="Product Amount :" textFill="#dddddd">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="text_amount" prefHeight="31.0" prefWidth="149.0" />
+                           </children>
+                           <padding>
+                              <Insets bottom="3.0" left="14.0" right="1.0" top="4.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="44.0" prefWidth="345.0" spacing="3.0">
+                           <children>
+                              <Label prefHeight="32.0" prefWidth="110.0" text="Product price :" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="text_price" prefHeight="32.0" prefWidth="253.0" text="product price" textFill="#16c9ff" />
+                           </children>
+                           <padding>
+                              <Insets bottom="3.0" left="14.0" right="1.0" top="4.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="44.0" prefWidth="345.0" spacing="3.0">
+                           <children>
+                              <Label prefHeight="32.0" prefWidth="108.0" text="Product Total :" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="ltotal" prefHeight="34.0" prefWidth="97.0" text="0" textFill="#2bc58a">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Button mnemonicParsing="false" onAction="#pay" text="Payment" textFill="RED" />
+                              <Button fx:id="print" mnemonicParsing="false" onAction="#Print" prefHeight="35.0" prefWidth="69.0" text="Print" />
+                           </children>
+                           <padding>
+                              <Insets bottom="3.0" left="14.0" right="1.0" top="4.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="TOP_RIGHT" prefHeight="44.0" prefWidth="345.0" spacing="2.0">
+                           <padding>
+                              <Insets bottom="3.0" left="14.0" right="26.0" top="11.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <ScrollPane layoutX="21.0" layoutY="390.0" prefHeight="198.0" prefWidth="390.0">
+                     <content>
+                        <TextArea fx:id="bill" editable="false" prefHeight="306.0" prefWidth="391.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+            <TableView fx:id="table_bill" layoutX="433.0" layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#getSelected_bill" prefHeight="540.0" prefWidth="722.0">
+               <columns>
+                  <TableColumn fx:id="col_barcode" prefWidth="196.0" text="Barcode" />
+                  <TableColumn fx:id="col_name" prefWidth="244.0" text="Name" />
+                  <TableColumn fx:id="col_type" prefWidth="240.6666259765625" text="Type" />
+                  <TableColumn fx:id="col_price" prefWidth="212.3333740234375" text="Price" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
    </center>
 </BorderPane>

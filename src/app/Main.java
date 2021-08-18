@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
+	double x,y = 0;
 	@Override
 	public void start(Stage primaryStage) {
 //		primaryStage.initStyle(StageStyle.UNDECORATED);
@@ -23,6 +24,17 @@ public class Main extends Application {
 			primaryStage.show();
 			primaryStage.setTitle("Manage Supermarket");
 		    primaryStage.show();
+		    
+	        root.setOnMousePressed(event -> {
+	            x = event.getSceneX();
+	            y = event.getSceneY();
+	        });
+
+	        root.setOnMouseDragged(event -> {
+	            primaryStage.setX(event.getScreenX() - x);
+	            primaryStage.setY(event.getScreenY() - y);
+	        });
+		    
 		
 		} catch(Exception e) {
 			e.printStackTrace();

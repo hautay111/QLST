@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 
 import app.model.Account;
 import app.model.Bill;
+import app.model.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;;
 
@@ -62,4 +63,22 @@ public class connectDB {
         }
         return list;
     }
+    
+    public static ObservableList<Product> getDataProduct(){
+        Connection conn = ConnectDb();
+        ObservableList<Product> list = FXCollections.observableArrayList();
+        try {
+            PreparedStatement ps = conn.prepareStatement("select product.pro_name,product.pro_expiry,product.pro_unit,brand.brand_name ,product.pro_sale_price,product.barcode from product INNER JOIN brand ON product.brand_id = brand.brand_id");
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()){   
+                list.add(new Product(Integer.parseInt(rs.getString("pro_id")),rs.getString("barcode"),rs.getString("pro_name"),rs.getString("pro_sale_price"),rs.getString("pro_expiry"),rs.getString("pro_unit"),rs.getString("brand_name")));       
+            }
+        } catch (Exception e) {
+        	System.out.println(e);
+        }
+        return list;
+    }
+    
+    
 }
