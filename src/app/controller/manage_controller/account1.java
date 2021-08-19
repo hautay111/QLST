@@ -126,10 +126,8 @@ public class account1 implements Initializable {
 		email.clear();
 		phone.clear();
 		address.clear();
-		gender.setValue("Gender:");
-		date_start.getEditor().setText("Date Start:");
-		dateofbirth.getEditor().setText("Date of birth:");
-		title.setValue("Title:");
+		date_start.getEditor().clear();
+		dateofbirth.getEditor().clear();
 		user.clear();
 		pass.clear();
 	}

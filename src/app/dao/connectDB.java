@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import app.model.Account1;
 import app.model.Bill;
+import app.model.Brand1;
+import app.model.Category1;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;;
 
@@ -74,8 +76,47 @@ public class connectDB {
         return list;
         
 	} 
-    
-    
+  //---------------------Category-brand-------------------------------
+    public static ObservableList<Category1> getDataCategory1() {
+        Connection conn = ConnectDb();
+        ObservableList<Category1> list = FXCollections.observableArrayList();
+        try {
+            PreparedStatement ps = conn.prepareStatement("SELECT category.* FROM category");
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()){   
+                list.add(new Category1(
+                		Integer.parseInt(rs.getString("cat_id")), 
+                		rs.getString("cat_name")
+                	));    
+                
+            }
+        } catch (Exception e) {
+        	System.out.println(e);
+        }
+        return list;
+        
+	}    
+    public static ObservableList<Brand1> getDataBrand1() {
+        Connection conn = ConnectDb();
+        ObservableList<Brand1> list = FXCollections.observableArrayList();
+        try {
+            PreparedStatement ps = conn.prepareStatement("SELECT brand.* FROM brand");
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()){   
+                list.add(new Brand1( 
+                		Integer.parseInt(rs.getString("brand_id")),
+                		rs.getString("brand_name")
+                	));    
+                
+            }
+        } catch (Exception e) {
+        	System.out.println(e);
+        }
+        return list;
+        
+	}
     
 
 	
