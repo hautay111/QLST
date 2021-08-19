@@ -50,7 +50,7 @@ public class connectDB {
         Connection conn = ConnectDb();
         ObservableList<Account1> list = FXCollections.observableArrayList();
         try {
-            PreparedStatement ps = conn.prepareStatement("SELECT employee.emp_id,employee.emp_name,employee.emp_email,employee.emp_phone,employee.emp_address,employee.emp_gender,employee.emp_user,employee.emp_pass,employee.emp_status,title.title_name FROM employee,title WHERE employee.title_id=title.title_id");
+            PreparedStatement ps = conn.prepareStatement("SELECT employee.*,title.* FROM employee,title WHERE employee.title_id=title.title_id");
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()){   
