@@ -6,12 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import app.model.Account1;
 import app.model.Bill;
-<<<<<<< HEAD
+
 import app.model.Product;
-=======
+
 import app.model.Brand1;
 import app.model.Category1;
->>>>>>> d120fd229955a2f786b46fdf2dea1bcaa189d23d
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;;
 
@@ -78,10 +77,7 @@ public class connectDB {
         	System.out.println(e);
         }
         return list;
-<<<<<<< HEAD
 
-    }
-=======
         
 	} 
   //---------------------Category-brand-------------------------------
@@ -125,7 +121,6 @@ public class connectDB {
         return list;
         
 	}
->>>>>>> d120fd229955a2f786b46fdf2dea1bcaa189d23d
     
     public static ObservableList<Product> getDataProduct(){
         Connection conn = ConnectDb();

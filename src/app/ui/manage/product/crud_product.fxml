@@ -1,56 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="476.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="389.0" prefWidth="678.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.manage_controller.product_crud.product_add">
    <children>
-      <Pane prefHeight="410.0" prefWidth="476.0" style="-fx-background-color: #5A8F6D;">
+      <Pane prefHeight="389.0" prefWidth="678.0" style="-fx-background-color: #5A8F6D;">
          <children>
-            <VBox layoutX="238.0" layoutY="79.0" prefHeight="257.0" prefWidth="184.0" spacing="40.0">
+            <TextField fx:id="text_product_id" layoutX="14.0" layoutY="8.0" promptText="ID" />
+            <VBox layoutX="22.0" layoutY="349.0" prefHeight="44.0" prefWidth="157.0" spacing="33.0" />
+            <HBox layoutX="22.0" layoutY="76.0" prefHeight="167.0" prefWidth="640.0" spacing="44.0">
                <children>
-                  <TextField fx:id="text_product_id" promptText="ID" />
-                  <TextField fx:id="text_product_name" promptText="Product Name" />
-                  <TextField fx:id="text_product_price" promptText="Price" />
-                  <TextField fx:id="text_product_amount" promptText="Amount" />
+                  <VBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="76.0" spacing="27.0">
+                     <children>
+                        <Label prefHeight="31.0" prefWidth="76.0" text="Barcode">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="31.0" prefWidth="76.0" text="Name">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="31.0" prefWidth="76.0" text="Price">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="31.0" prefWidth="76.0" text="Category">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="167.0" prefWidth="155.0" spacing="35.0">
+                     <children>
+                        <TextField fx:id="text_product_barcode" prefHeight="25.0" prefWidth="129.0" promptText="Barcode" />
+                        <TextField fx:id="text_product_name" promptText="Product Name" />
+                        <TextField fx:id="text_product_price" promptText="Price" />
+                        <ComboBox fx:id="combobox_product" onAction="#Select_combobox" prefWidth="150.0" promptText="Catrgory" />
+                     </children>
+                  </VBox>
+                  <VBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="76.0" spacing="26.0">
+                     <children>
+                        <Label prefHeight="31.0" prefWidth="76.0" text="Expiry" />
+                        <Label prefHeight="31.0" prefWidth="76.0" text="Unit" />
+                        <Label prefHeight="31.0" prefWidth="76.0" text="Brand" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="167.0" prefWidth="184.0" spacing="34.0">
+                     <children>
+                        <TextField fx:id="text_product_expiry" promptText="Expiry" />
+                        <TextField fx:id="text_product_unit" promptText="Unit" />
+                        <TextField fx:id="text_product_brand" promptText="Brand" />
+                        <ComboBox fx:id="combobox_product_brand" onAction="#Select_combobox" prefWidth="150.0" promptText="Catrgory" />
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
-            <Button layoutX="365.0" layoutY="14.0" mnemonicParsing="false" onAction="#btn_product_add" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: #aaa;" text="Add" />
-            <VBox layoutX="117.0" layoutY="77.0" prefHeight="257.0" prefWidth="100.0" spacing="35.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="100.0" text="ID">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="100.0" text="Name">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="100.0" text="Price">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="100.0" text="Amount">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
-            <Label layoutX="43.0" layoutY="6.0" prefHeight="45.0" prefWidth="204.0" text="Add Product">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Label>
+            </HBox>
+            <Button layoutX="425.0" layoutY="324.0" mnemonicParsing="false" onAction="#btn_product_add" prefHeight="25.0" prefWidth="161.0" text="Add" />
          </children>
       </Pane>
    </children>

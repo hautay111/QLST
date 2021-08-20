@@ -87,6 +87,15 @@ public class Home_Manage {
     }
 	
 	@FXML
+    void product_manage(MouseEvent event) throws IOException{
+		FXMLLoader loader=new FXMLLoader();
+		loader.setLocation(getClass().getResource("../../ui/manage/product/Product_sales.fxml"));
+		Parent parent=loader.load();
+		mainPane.setCenter(parent);
+
+    }
+	
+	@FXML
     void toAcc(MouseEvent event) throws IOException {
 //		FXMLLoader loader=new FXMLLoader();
 //		loader.setLocation(getClass().getResource("../../ui/manage/acc.fxml"));
