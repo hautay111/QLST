@@ -56,6 +56,10 @@ public class product implements Initializable{
 
     @FXML
     private TableColumn<Product, String> col_product_brand;
+    
+
+    @FXML
+    private TableColumn<Product, String> col_product_category;
 
     @FXML
     private TextField text_product_id;
@@ -145,6 +149,7 @@ public class product implements Initializable{
     	col_product_expiry.setCellValueFactory(new PropertyValueFactory<Product,String>("expiry"));
     	col_product_unit.setCellValueFactory(new PropertyValueFactory<Product,String>("unit"));
     	col_product_brand.setCellValueFactory(new PropertyValueFactory<Product,String>("brand"));
+    	col_product_category.setCellValueFactory(new PropertyValueFactory<Product,String>("category"));
 
 	           dataList = connectDB.getDataProduct();
 	           table_product.setItems(dataList);
@@ -183,6 +188,7 @@ public class product implements Initializable{
     	col_product_expiry.setCellValueFactory(new PropertyValueFactory<Product,String>("expiry"));
     	col_product_unit.setCellValueFactory(new PropertyValueFactory<Product,String>("unit"));
     	col_product_brand.setCellValueFactory(new PropertyValueFactory<Product,String>("brand"));
+    	col_product_category.setCellValueFactory(new PropertyValueFactory<Product,String>("category"));
     	
         
         listM = connectDB.getDataProduct();
@@ -265,6 +271,7 @@ public class product implements Initializable{
 	                Stage stage = new Stage();
 	                stage.setScene(new Scene(root));  
 	                stage.show();             
+	                UpdateTable_product();
 	        } catch(Exception e) {
 	           e.printStackTrace();
 	          }
@@ -272,14 +279,28 @@ public class product implements Initializable{
 
     @FXML
     void product_delete(MouseEvent event) {
-
+        conn = connectDB.ConnectDb();
+        String sql = "delete from product where pro_id = ?";
+            try {
+                pst = conn.prepareStatement(sql);
+                pst.setString(1, text_product_id.getText());
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Delete");
+                UpdateTable_product();
+                search_user_product();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
     }
 
     @FXML
     void product_edit(MouseEvent event) {
 
     }
-
+    @FXML
+    void load_product(MouseEvent event) {
+    	UpdateTable_product();
+    }
 
      
 }

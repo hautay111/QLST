@@ -9,10 +9,10 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
-import app.dao.PlanetDAO;
+
 import app.dao.connectDB;
 import app.model.Category1;
-import app.model.Planet;
+
 import app.model.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
