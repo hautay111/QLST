@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-
+import app.controller.manage_controller.product_crud.*;
 import javax.swing.JOptionPane;
 
 import app.dao.connectDB;
@@ -85,6 +85,8 @@ public class product implements Initializable{
     @FXML
     private TextField text_product_barcode;
 
+    @FXML
+    private TextField text_product_category;
     
     int index = -1;
     
@@ -101,6 +103,7 @@ public class product implements Initializable{
     } 
     ObservableList<Category1> listM1;
     ObservableList<Category1> dataList1;
+   
     
 //   void showamount() {
 //	   conn = connectDB.ConnectDb();
@@ -196,44 +199,6 @@ public class product implements Initializable{
     }
 
     @FXML
-    void btn_product_delete(ActionEvent event) {
-        conn = connectDB.ConnectDb();
-        String sql = "delete from product where pro_id = ?";
-            try {
-                pst = conn.prepareStatement(sql);
-                pst.setString(1, text_product_id.getText());
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Delete");
-                UpdateTable_product();
-                search_user_product();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-    }
-
-    @FXML
-    void btn_product_edit(ActionEvent event) {
-        try {
-            conn = connectDB.ConnectDb();
-            String value1 = text_product_id.getText();
-            String value2 = text_product_name.getText();
-            String value3 = text_product_price.getText();
-            String value4 = text_product_expiry.getText();
-            String value5 = text_product_unit.getText();
-//            String value6 = text_product_brand.getText();
-
-            String sql = "update product set pro_name= '"+value2+"',pro_sale_price= '"+
-                    value3+"',pro_expiry= '"+value4+"',pro_unit= '"+value5+"' where pro_id = '"+value1+"' ";
-            pst= conn.prepareStatement(sql);
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Update");
-            UpdateTable_product();
-            search_user_product();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
-    @FXML
     void getSelected_product(MouseEvent event) {
         index = table_product.getSelectionModel().getSelectedIndex();
         if (index <= -1){
@@ -247,6 +212,7 @@ public class product implements Initializable{
         text_product_expiry.setText(col_product_expiry.getCellData(index).toString());
         text_product_unit.setText(col_product_unit.getCellData(index).toString());
         text_product_brand.setText(col_product_brand.getCellData(index).toString());
+        text_product_category.setText(col_product_category.getCellData(index).toString());
  
     }
 
@@ -292,14 +258,41 @@ public class product implements Initializable{
                 JOptionPane.showMessageDialog(null, e);
             }
     }
-
+    
     @FXML
     void product_edit(MouseEvent event) {
+        try {
+            conn = connectDB.ConnectDb();
+            String value1 = text_product_id.getText();
+            String value2 = text_product_name.getText();
+            String value3 = text_product_price.getText();
+            String value4 = text_product_expiry.getText();
+            String value5 = text_product_unit.getText();
+            String value6 = text_product_brand.getText();
+            String value7 = text_product_category.getText();
 
+            String sql = "update product set pro_name= '"+value2+"',pro_sale_price= '"+
+                    value3+"',pro_expiry= '"+value4+"',pro_unit= '"+value5+"',pro_brand= '"+value6+"',pro_category= '"+value7+"' where pro_id = '"+value1+"' ";
+            pst= conn.prepareStatement(sql);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Update");
+            UpdateTable_product();
+            search_user_product();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
     @FXML
     void load_product(MouseEvent event) {
     	UpdateTable_product();
+    	text_product_id.setText("");
+    	text_product_name.setText("");
+    	text_product_price.setText("");
+    	text_product_expiry.setText("");
+    	text_product_unit.setText("");
+    	text_product_brand.setText("");
+    	text_product_barcode.setText("");
+    	text_product_category.setText("");
     }
 
      

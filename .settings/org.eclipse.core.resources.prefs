@@ -1,3 +1,4 @@
 eclipse.preferences.version=1
 encoding//src/app/controller/manage_controller/product.java=UTF-8
 encoding//src/app/controller/manage_controller/product_crud/product_add.java=UTF-8
+encoding//src/app/controller/manage_controller/product_crud/product_edit.java=UTF-8
