@@ -47,7 +47,7 @@
                         <TextField fx:id="text_product_barcode" prefHeight="25.0" prefWidth="129.0" promptText="Barcode" />
                         <TextField fx:id="text_product_name" promptText="Product Name" />
                         <TextField fx:id="text_product_price" promptText="Price" />
-                        <ComboBox fx:id="combobox_product" onAction="#Select_combobox" prefWidth="150.0" promptText="Catrgory" />
+                        <ComboBox fx:id="combobox_product_category" prefHeight="25.0" prefWidth="188.0" promptText="Category" />
                      </children>
                   </VBox>
                   <VBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="76.0" spacing="26.0">
@@ -60,14 +60,13 @@
                   <VBox prefHeight="167.0" prefWidth="184.0" spacing="34.0">
                      <children>
                         <TextField fx:id="text_product_expiry" promptText="Expiry" />
-                        <TextField fx:id="text_product_unit" promptText="Unit" />
-                        <TextField fx:id="text_product_brand" promptText="Brand" />
-                        <ComboBox fx:id="combobox_product_brand" onAction="#Select_combobox" prefWidth="150.0" promptText="Catrgory" />
+                        <ComboBox fx:id="combobox_product" prefHeight="25.0" prefWidth="185.0" promptText="Unit" />
+                        <ComboBox fx:id="combobox_product_brand" prefHeight="25.0" prefWidth="188.0" promptText="Brand" />
                      </children>
                   </VBox>
                </children>
             </HBox>
-            <Button layoutX="425.0" layoutY="324.0" mnemonicParsing="false" onAction="#btn_product_add" prefHeight="25.0" prefWidth="161.0" text="Add" />
+            <Button layoutX="437.0" layoutY="307.0" mnemonicParsing="false" onAction="#btn_product_add" prefHeight="25.0" prefWidth="161.0" text="Add" />
          </children>
       </Pane>
    </children>

@@ -92,48 +92,11 @@ public class product implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
     UpdateTable_product();
     search_user_product();
-    product_combobox();
 //    showamount();
     // Code Source in description
     } 
     ObservableList<Category1> listM1;
     ObservableList<Category1> dataList1;
-    @FXML
-    private ComboBox<String> combobox_product;
-    @FXML
-    void Select_combobox(ActionEvent event) {
-        String s = combobox_product.getSelectionModel().getSelectedItem().toString();
-//        label.setText(s);
-    } 
-    @FXML
-    private TextField test;
-    private ObservableList<String> stationsList = FXCollections.observableArrayList();
-    
-    public void product_combobox() {
-//      ObservableList<String> list1 = FXCollections.observableArrayList("cat_name");
-//      combobox_product.setItems(list1);
-    	
-        String sql = " select * from category ";
-
-        try {
-            conn = (Connection) connectDB.ConnectDb();
-            PreparedStatement pstStn = conn.prepareStatement(sql);
-            ResultSet stnRS = pstStn.executeQuery(sql);
-
-            while (stnRS.next()) {
-
-//            	combobox_product.getItems().add(stnRS.getString("cat_name"));
-
-                stationsList.add(stnRS.getString("cat_name"));
-                combobox_product.setItems(stationsList);
-            }
-            	
-            } catch (SQLException ex) {
-                System.err.println("ERR" + ex);
-            }
-  } 
-   
-    
     
 //   void showamount() {
 //	   conn = connectDB.ConnectDb();

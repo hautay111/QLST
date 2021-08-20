@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -12,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="1012.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.manage_controller.product">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="1254.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.manage_controller.product">
    <center>
       <TableView fx:id="table_product" onMouseClicked="#getSelected_product" prefHeight="692.0" prefWidth="810.0" style="-fx-background-color: #81E0E5;" BorderPane.alignment="CENTER">
         <columns>
@@ -29,45 +27,46 @@
          </columnResizePolicy>
       </TableView>
    </center>
-   <left>
-      <Pane prefHeight="652.0" prefWidth="200.0" style="-fx-background-color: #5A8F6D;" BorderPane.alignment="CENTER">
-         <children>
-            <TextField fx:id="text_product_id" layoutX="26.0" layoutY="25.0" promptText="ID" />
-            <TextField fx:id="text_product_name" layoutX="26.0" layoutY="109.0" promptText="Product Name" />
-            <TextField fx:id="text_product_price" layoutX="26.0" layoutY="152.0" promptText="Price" />
-            <TextField fx:id="text_product_expiry" layoutX="26.0" layoutY="199.0" promptText="Expiry" />
-            <VBox layoutX="22.0" layoutY="349.0" prefHeight="200.0" prefWidth="157.0" spacing="33.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#btn_product_add" prefHeight="25.0" prefWidth="161.0" text="Add" />
-                  <Button mnemonicParsing="false" onAction="#btn_product_delete" prefHeight="25.0" prefWidth="160.0" text="Delete" />
-                  <Button mnemonicParsing="false" onAction="#btn_product_edit" prefHeight="25.0" prefWidth="159.0" text="Edit" />
-                  <Button mnemonicParsing="false" onAction="#btn_product_reset" prefHeight="25.0" prefWidth="158.0" text="Reset" />
-               </children>
-            </VBox>
-            <TextField fx:id="text_product_brand" layoutX="26.0" layoutY="287.0" promptText="Brand" />
-            <TextField fx:id="text_product_unit" layoutX="26.0" layoutY="242.0" promptText="Unit" />
-            <TextField fx:id="text_product_barcode" layoutX="26.0" layoutY="68.0" promptText="Barcode" />
-         </children>
-      </Pane>
-   </left>
    <top>
-      <Pane prefHeight="51.0" prefWidth="1010.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="115.0" prefWidth="1150.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="search_user_product" layoutX="321.0" layoutY="13.0" prefHeight="25.0" prefWidth="249.0" />
-            <Label layoutX="255.0" layoutY="11.0" prefHeight="23.0" prefWidth="63.0" text="Search">
+            <TextField fx:id="search_user_product" layoutX="1000.0" layoutY="45.0" prefHeight="25.0" prefWidth="249.0" promptText="search by barcode, name, price, brand" />
+            <Label layoutX="937.0" layoutY="47.0" prefHeight="23.0" prefWidth="63.0" text="Search">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <HBox layoutX="614.0" layoutY="13.0" prefHeight="25.0" prefWidth="200.0" spacing="21.0">
+            <HBox layoutX="698.0" layoutY="70.0" prefHeight="25.0" prefWidth="200.0" spacing="21.0">
                <children>
                   <Label onMouseClicked="#product_add" prefHeight="25.0" prefWidth="48.0" text="Add" />
                   <Label onMouseClicked="#product_edit" prefHeight="25.0" prefWidth="54.0" text="Edit" />
                   <Label onMouseClicked="#product_delete" prefHeight="25.0" prefWidth="47.0" text="Delete" />
                </children>
             </HBox>
-            <ComboBox fx:id="combobox_product" layoutX="48.0" layoutY="10.0" onAction="#Select_combobox" prefWidth="150.0" promptText="A" />
-            <TextField fx:id="test" layoutX="6.0" layoutY="10.0" prefHeight="25.0" prefWidth="40.0" />
+            <HBox layoutX="42.0" layoutY="4.0" prefHeight="108.0" prefWidth="287.0" spacing="7.0">
+               <children>
+                  <VBox prefHeight="224.0" prefWidth="148.0" spacing="14.0">
+                     <children>
+                        <TextField fx:id="text_product_barcode" promptText="Barcode" />
+                        <TextField fx:id="text_product_name" promptText="Product Name" />
+                        <TextField fx:id="text_product_price" promptText="Price" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="224.0" prefWidth="154.0" spacing="14.0">
+                     <children>
+                        <TextField fx:id="text_product_expiry" promptText="Expiry" />
+                        <TextField fx:id="text_product_unit" promptText="Unit" />
+                        <TextField fx:id="text_product_brand" promptText="Brand" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <TextField fx:id="text_product_id" layoutX="1124.0" layoutY="10.0" prefHeight="25.0" prefWidth="33.0" promptText="ID" visible="false" />
+            <Label layoutX="440.0" prefHeight="45.0" prefWidth="316.0" text="Product Management" textFill="#ff3795">
+               <font>
+                  <Font name="System Bold Italic" size="30.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </top>
