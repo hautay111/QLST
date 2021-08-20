@@ -80,12 +80,19 @@ public class Home_Manage {
 	@FXML
     void account(MouseEvent event) throws IOException{
 		FXMLLoader loader=new FXMLLoader();
-		loader.setLocation(getClass().getResource("../../ui/manage/account.fxml"));
+		loader.setLocation(getClass().getResource("../../ui/manage/account1.fxml"));
 		Parent parent=loader.load();
 		mainPane.setCenter(parent);
 
     }
 	
+	@FXML
+    void toAcc(MouseEvent event) throws IOException {
+//		FXMLLoader loader=new FXMLLoader();
+//		loader.setLocation(getClass().getResource("../../ui/manage/acc.fxml"));
+//		Parent parent=loader.load();
+//		mainPane.setCenter(parent);
+    }
 	
 	private static String emp_id, name,phone,email,username,title_name,date;
 	@FXML

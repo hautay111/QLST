@@ -169,7 +169,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <Label alignment="CENTER" prefHeight="34.0" prefWidth="209.0" styleClass="shadow" text="Settings" textFill="WHITE">
+                        <Label alignment="CENTER" onMouseClicked="#toAcc" prefHeight="34.0" prefWidth="209.0" styleClass="shadow" text="Settings" textFill="WHITE">
                            <font>
                               <Font name="Bell MT" size="41.0" />
                            </font>

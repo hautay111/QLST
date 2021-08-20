@@ -4,8 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-import app.model.Account;
+import app.model.Account1;
 import app.model.Bill;
 import app.model.Product;
 import javafx.collections.FXCollections;
@@ -47,28 +46,41 @@ public class connectDB {
         }
         return list;
 	}
-    
-    
-    public static ObservableList<Account> getDataAccount(){
+//---------------------account-------------------------------
+    public static ObservableList<Account1> getDataAccount1() {
         Connection conn = ConnectDb();
-        ObservableList<Account> list = FXCollections.observableArrayList();
+        ObservableList<Account1> list = FXCollections.observableArrayList();
         try {
-            PreparedStatement ps = conn.prepareStatement("select employee.*,title.* from employee,title");
+            PreparedStatement ps = conn.prepareStatement("SELECT employee.emp_id,employee.emp_name,employee.emp_email,employee.emp_phone,employee.emp_address,employee.emp_gender,employee.emp_user,employee.emp_pass,employee.emp_status,title.title_name FROM employee,title WHERE employee.title_id=title.title_id");
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()){   
-                list.add(new Account(Integer.parseInt(rs.getString("emp_id")), Integer.parseInt(rs.getString("emp_status")), rs.getString("emp_name"), rs.getString("emp_email"), rs.getString("emp_phone"), rs.getString("emp_address"), rs.getString("emp_gender"), rs.getString("emp_user"), rs.getString("emp_pass"), rs.getString("emp_address")));               
+                list.add(new Account1(
+                		Integer.parseInt(rs.getString("emp_id")),
+                		Integer.parseInt(rs.getString("emp_status")),
+                		rs.getString("emp_name"), 
+                		rs.getString("emp_email"),
+                		rs.getString("emp_phone"), 
+                		rs.getString("emp_address"),  
+                		rs.getString("emp_gender"),
+                		rs.getString("title_name"),
+                		rs.getString("emp_user"), 
+                		rs.getString("emp_pass")
+                	));    
+                
             }
         } catch (Exception e) {
+        	System.out.println(e);
         }
         return list;
+
     }
     
     public static ObservableList<Product> getDataProduct(){
         Connection conn = ConnectDb();
         ObservableList<Product> list = FXCollections.observableArrayList();
         try {
-            PreparedStatement ps = conn.prepareStatement("select product.pro_name,product.pro_expiry,product.pro_unit,brand.brand_name ,product.pro_sale_price,product.barcode from product INNER JOIN brand ON product.brand_id = brand.brand_id");
+            PreparedStatement ps = conn.prepareStatement("select product.pro_id, product.pro_name,product.pro_expiry,product.pro_unit,brand.brand_name ,product.pro_sale_price,product.barcode from product INNER JOIN brand ON product.brand_id = brand.brand_id");
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()){   
@@ -79,6 +91,6 @@ public class connectDB {
         }
         return list;
     }
-    
-    
+
+  
 }
