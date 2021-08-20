@@ -148,6 +148,11 @@ public class Home_Manage {
 		stage.setScene(scene);
 	}
 	
+	@FXML
+    void category_brand(MouseEvent event) {
+		loadUI("category_brand1");
+    }
+	
 	private static String a1,a2,a3;
 	public void getId(String id1,String user1,String title1) {
 		id.setText(id1);

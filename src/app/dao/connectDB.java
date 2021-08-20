@@ -6,7 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import app.model.Account1;
 import app.model.Bill;
+<<<<<<< HEAD
 import app.model.Product;
+=======
+import app.model.Brand1;
+import app.model.Category1;
+>>>>>>> d120fd229955a2f786b46fdf2dea1bcaa189d23d
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;;
 
@@ -51,7 +56,7 @@ public class connectDB {
         Connection conn = ConnectDb();
         ObservableList<Account1> list = FXCollections.observableArrayList();
         try {
-            PreparedStatement ps = conn.prepareStatement("SELECT employee.emp_id,employee.emp_name,employee.emp_email,employee.emp_phone,employee.emp_address,employee.emp_gender,employee.emp_user,employee.emp_pass,employee.emp_status,title.title_name FROM employee,title WHERE employee.title_id=title.title_id");
+            PreparedStatement ps = conn.prepareStatement("SELECT employee.*,title.* FROM employee,title WHERE employee.title_id=title.title_id");
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()){   
@@ -73,8 +78,54 @@ public class connectDB {
         	System.out.println(e);
         }
         return list;
+<<<<<<< HEAD
 
     }
+=======
+        
+	} 
+  //---------------------Category-brand-------------------------------
+    public static ObservableList<Category1> getDataCategory1() {
+        Connection conn = ConnectDb();
+        ObservableList<Category1> list = FXCollections.observableArrayList();
+        try {
+            PreparedStatement ps = conn.prepareStatement("SELECT category.* FROM category");
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()){   
+                list.add(new Category1(
+                		Integer.parseInt(rs.getString("cat_id")), 
+                		rs.getString("cat_name")
+                	));    
+                
+            }
+        } catch (Exception e) {
+        	System.out.println(e);
+        }
+        return list;
+        
+	}    
+    public static ObservableList<Brand1> getDataBrand1() {
+        Connection conn = ConnectDb();
+        ObservableList<Brand1> list = FXCollections.observableArrayList();
+        try {
+            PreparedStatement ps = conn.prepareStatement("SELECT brand.* FROM brand");
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()){   
+                list.add(new Brand1( 
+                		Integer.parseInt(rs.getString("brand_id")),
+                		rs.getString("brand_name")
+                	));    
+                
+            }
+        } catch (Exception e) {
+        	System.out.println(e);
+        }
+        return list;
+        
+	}
+>>>>>>> d120fd229955a2f786b46fdf2dea1bcaa189d23d
     
     public static ObservableList<Product> getDataProduct(){
         Connection conn = ConnectDb();
