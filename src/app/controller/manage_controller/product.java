@@ -2,6 +2,7 @@ package app.controller.manage_controller;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +16,13 @@ import com.mysql.cj.x.protobuf.MysqlxDatatypes.Object;
 
 import app.dao.connectDB;
 import app.model.Category1;
+import app.model.FxUtilTest;
 import app.model.Product;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.ObjectBinding;
+import javafx.beans.property.ReadOnlyObjectProperty;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -28,12 +35,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Callback;
+import javafx.util.StringConverter;
 
 public class product implements Initializable{
     @FXML
@@ -66,6 +78,10 @@ public class product implements Initializable{
     @FXML
     private TableColumn<Product, String> col_product_category;
 
+
+    @FXML
+    private TableColumn<Product, String> col_product_number;
+    
     @FXML
     private TextField text_product_id;
     @FXML
@@ -97,6 +113,10 @@ public class product implements Initializable{
     @FXML
     private Label label_amount;
     
+
+    @FXML
+    private TextField test;
+    
     int index = -1;
     
     Connection conn =null;
@@ -104,10 +124,16 @@ public class product implements Initializable{
     PreparedStatement pst = null;
     ObservableList<Product> listM;
     ObservableList<Product> dataList;
+    
+    @FXML
+    private ComboBox<String> myComboBox;
+    
     public void initialize(URL url, ResourceBundle rb) {
     UpdateTable_product();
     search_user_product();
     showamount();
+
+    
     // Code Source in description
     
 //    DecimalFormat formatter = new DecimalFormat("###,###,###");
@@ -116,6 +142,8 @@ public class product implements Initializable{
 //    
 //    String moneyString = formatter.format(money);
 //    System.out.println(moneyString);
+       
+    
     } 
     ObservableList<Category1> listM1;
     ObservableList<Category1> dataList1;
@@ -168,23 +196,51 @@ public class product implements Initializable{
 	       if (person.getName().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
 	        return true; // Filter matches name
 	       } else if (person.getUnit().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-	        return true; // Filter matches email
+	        return true; // Filter matches unit
 	       }else if (person.getBarcode().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-	        return true; // Filter matches phone
-	       }
-	       else if (String.valueOf(person.getBrand()).indexOf(lowerCaseFilter)!=-1)
-	            return true;// Filter matches username
+	        return true; // Filter matches barcode
+	       }else if (person.getCategory().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+		        return true; // Filter matches category
+	       }else if (String.valueOf(person.getBrand()).indexOf(lowerCaseFilter)!=-1)
+	            return true;// Filter matches brand
 	                                   
 	            else  
 	             return false; // Does not match.
 	      });
 	     });  
 	     SortedList<Product> sortedData = new SortedList<>(filteredData);  
-	     sortedData.comparatorProperty().bind(table_product.comparatorProperty());  
+	     sortedData.comparatorProperty().bind(table_product.comparatorProperty()); 
 	     table_product.setItems(sortedData);      
-	       
-    }
+
+    }    	
+    
+    
+    
+    
+    
+    
+
     public void UpdateTable_product(){
+
+    	col_product_number.setCellFactory(col -> {
+    	  TableCell<Product, String> indexCell = new TableCell<>();
+    	  ReadOnlyObjectProperty<TableRow<Product>> rowProperty = indexCell.tableRowProperty();
+    	  ObjectBinding<String> rowBinding = Bindings.createObjectBinding(() -> {
+    	    TableRow<Product> row = rowProperty.get();
+    	    if (row != null) { // can be null during CSS processing
+    	      int rowIndex = row.getIndex();
+    	      if (rowIndex < row.getTableView().getItems().size()) {
+    	        return Integer.toString(rowIndex);
+    	      }
+    	    }
+    	    return null;
+    	  }, rowProperty);
+    	  indexCell.textProperty().bind(rowBinding);
+    	  return indexCell;
+    	});
+    	
+    	
+    	
     	col_product_id.setCellValueFactory(new PropertyValueFactory<Product,Integer>("id"));
     	col_product_barcode.setCellValueFactory(new PropertyValueFactory<Product,String>("barcode"));
     	col_product_name.setCellValueFactory(new PropertyValueFactory<Product,String>("name"));
@@ -228,9 +284,8 @@ public class product implements Initializable{
     	text_product_brand.setText("");
     	text_product_barcode.setText("");
     	text_product_category.setText("");
-
-    	UpdateTable_product();
-
+    	
+		UpdateTable_product();
     }
     @FXML
     void product_add(MouseEvent event) {
@@ -242,6 +297,7 @@ public class product implements Initializable{
 	                stage.show();             
 	                UpdateTable_product();
 	                showamount();
+	                
 	        } catch(Exception e) {
 	        	
 	           e.printStackTrace();
@@ -309,6 +365,7 @@ public class product implements Initializable{
     	text_product_brand.setText("");
     	text_product_barcode.setText("");
     	text_product_category.setText("");
+
     }
 
      
