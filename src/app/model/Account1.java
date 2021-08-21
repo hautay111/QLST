@@ -1,14 +1,14 @@
 package app.model;
 
 public class Account1 {
-	int emp_id,emp_status;
+	int emp_id,emp_status,no;
 	String emp_name,emp_email,emp_phone,emp_address,emp_gender,title_name,emp_user,emp_pass;
 	
-	public Account1(int emp_id, int emp_status, String emp_name, String emp_email, String emp_phone, String emp_address,
-			String emp_gender, String title_name, String emp_user, String emp_pass) {
-//		super();
+	public Account1(int emp_id, int emp_status, int no, String emp_name, String emp_email, String emp_phone,
+			String emp_address, String emp_gender, String title_name, String emp_user, String emp_pass) {
 		this.emp_id = emp_id;
 		this.emp_status = emp_status;
+		this.no = no;
 		this.emp_name = emp_name;
 		this.emp_email = emp_email;
 		this.emp_phone = emp_phone;
@@ -18,9 +18,6 @@ public class Account1 {
 		this.emp_user = emp_user;
 		this.emp_pass = emp_pass;
 	}
-	public Account1() {
-		
-	};
 
 	public int getEmp_id() {
 		return emp_id;
@@ -36,6 +33,14 @@ public class Account1 {
 
 	public void setEmp_status(int emp_status) {
 		this.emp_status = emp_status;
+	}
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
 	}
 
 	public String getEmp_name() {
@@ -101,6 +106,8 @@ public class Account1 {
 	public void setEmp_pass(String emp_pass) {
 		this.emp_pass = emp_pass;
 	}
+	
+	
 	
 	
 }

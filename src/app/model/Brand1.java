@@ -1,11 +1,12 @@
 package app.model;
 
 public class Brand1 {
-	int brand_id;
+	int brand_id,no;
 	String brand_name;
 	
-	public Brand1(int brand_id, String brand_name) {
+	public Brand1(int brand_id, int no, String brand_name) {
 		this.brand_id = brand_id;
+		this.no = no;
 		this.brand_name = brand_name;
 	}
 
@@ -15,6 +16,14 @@ public class Brand1 {
 
 	public void setBrand_id(int brand_id) {
 		this.brand_id = brand_id;
+	}
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
 	}
 
 	public String getBrand_name() {

@@ -19,7 +19,7 @@ public class connectDB {
     public static Connection ConnectDb(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/project_qlst","root","");
+            Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/qlst","root","");
            // JOptionPane.showMessageDialog(null, "Connection Established");
             System.out.println("ket noi database thanh cong");
             return conn;
@@ -62,6 +62,7 @@ public class connectDB {
                 list.add(new Account1(
                 		Integer.parseInt(rs.getString("emp_id")),
                 		Integer.parseInt(rs.getString("emp_status")),
+                		rs.getRow(),
                 		rs.getString("emp_name"), 
                 		rs.getString("emp_email"),
                 		rs.getString("emp_phone"), 
@@ -91,6 +92,7 @@ public class connectDB {
             while (rs.next()){   
                 list.add(new Category1(
                 		Integer.parseInt(rs.getString("cat_id")), 
+                		rs.getRow(),
                 		rs.getString("cat_name")
                 	));    
                 
@@ -111,6 +113,7 @@ public class connectDB {
             while (rs.next()){   
                 list.add(new Brand1( 
                 		Integer.parseInt(rs.getString("brand_id")),
+                		rs.getRow(),
                 		rs.getString("brand_name")
                 	));    
                 
@@ -131,7 +134,7 @@ public class connectDB {
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()){   
-                list.add(new Product(Integer.parseInt(rs.getString("pro_id")),rs.getString("barcode"),rs.getString("pro_name"),rs.getString("pro_expiry"),rs.getString("pro_unit"),rs.getString("pro_brand"),rs.getString("pro_category"),rs.getString("pro_sale_price")));       
+                list.add(new Product(Integer.parseInt(rs.getString("pro_id")),rs.getRow(),rs.getString("pro_sale_price"),rs.getString("barcode"),rs.getString("pro_name"),rs.getString("pro_expiry"),rs.getString("pro_unit"),rs.getString("pro_brand"),rs.getString("pro_category")));       
             }
         } catch (Exception e) {
         	System.out.println(e);
