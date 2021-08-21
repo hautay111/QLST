@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
@@ -165,6 +166,8 @@ public class product_add implements Initializable{
 		                System.err.println("ERR" + ex);
 		            }
 		  } 
+	      
+
 	    
 	    @FXML
 	    void btn_product_add(ActionEvent event) {
@@ -172,14 +175,18 @@ public class product_add implements Initializable{
 	        String sql = "insert into product (barcode,pro_name,pro_sale_price,pro_expiry,pro_unit,pro_brand,pro_category)values(?,?,?,?,?,?,?)";
 	        try {
 	        	
-
+	            DecimalFormat formatter = new DecimalFormat("###,###,###");
+	            
+	            double money = Double.parseDouble(text_product_price.getText()); 
+	            
+	            String moneyString = formatter.format(money);
+	            System.out.println(moneyString);
+	        	
 	            pst = conn.prepareStatement(sql);
 	            pst.setString(1, text_product_barcode.getText());
 	            pst.setString(2, text_product_name.getText());
-	            pst.setString(3, text_product_price.getText());
+	            pst.setString(3, moneyString);
 	            pst.setString(4, text_product_expiry.getText());
-//	            pst.setString(5, text_product_unit.getText());	            
-//	            String value = combobox_product.getSelectionModel().toString();
 	            String value = combobox_product.getSelectionModel().getSelectedItem().toString();
 	            String value1 = combobox_product_brand.getSelectionModel().getSelectedItem().toString();
 	            String value2 = combobox_product_category.getSelectionModel().getSelectedItem().toString();
@@ -189,8 +196,12 @@ public class product_add implements Initializable{
 	            pst.execute();
 	            JOptionPane.showMessageDialog(null, "Users Add succes");
 	        } catch (Exception e) {
+	        	System.out.println(e);
 	            JOptionPane.showMessageDialog(null, e);
 	        }
 	    }
+
+
+
 	
 }

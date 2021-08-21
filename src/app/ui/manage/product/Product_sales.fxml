@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="1254.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.manage_controller.product">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="1254.0" stylesheets="@../../css/application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.manage_controller.product">
    <center>
       <TableView fx:id="table_product" onMouseClicked="#getSelected_product" prefHeight="692.0" prefWidth="810.0" style="-fx-background-color: #81E0E5;" BorderPane.alignment="CENTER">
         <columns>
@@ -31,18 +32,25 @@
    <top>
       <Pane prefHeight="115.0" prefWidth="1150.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="search_user_product" layoutX="1000.0" layoutY="45.0" prefHeight="25.0" prefWidth="249.0" promptText="search by barcode, name, price, brand" />
-            <Label layoutX="937.0" layoutY="47.0" prefHeight="23.0" prefWidth="63.0" text="Search">
+            <TextField fx:id="search_user_product" layoutX="1000.0" layoutY="70.0" prefHeight="25.0" prefWidth="249.0" promptText="search by barcode, name, price, brand" />
+            <Label layoutX="948.0" layoutY="72.0" prefHeight="23.0" prefWidth="52.0" text="Search">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <HBox layoutX="698.0" layoutY="70.0" prefHeight="25.0" prefWidth="200.0" spacing="21.0">
+            <HBox layoutX="604.0" layoutY="70.0" prefHeight="25.0" prefWidth="294.0" spacing="26.0" style="-fx-background-color: #CFEDAE;">
                <children>
-                  <Label onMouseClicked="#product_add" prefHeight="25.0" prefWidth="48.0" text="Add" />
-                  <Label onMouseClicked="#product_edit" prefHeight="25.0" prefWidth="54.0" text="Edit" />
-                  <Label onMouseClicked="#product_delete" prefHeight="25.0" prefWidth="47.0" text="Delete" />
+                  <Label onMouseClicked="#load_product" prefHeight="25.0" prefWidth="41.0" styleClass="btnproduct" text="Load" />
+                  <Label onMouseClicked="#product_add" prefHeight="25.0" prefWidth="48.0" styleClass="btnproduct" text="Add" />
+                  <Label onMouseClicked="#product_edit" prefHeight="25.0" prefWidth="54.0" styleClass="btnproduct" text="Edit" />
+                  <Label onMouseClicked="#product_delete" prefHeight="25.0" prefWidth="47.0" styleClass="btnproduct" text="Delete" />
                </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="1.0" left="18.0" />
+               </padding>
             </HBox>
             <HBox layoutX="42.0" layoutY="4.0" prefHeight="108.0" prefWidth="287.0" spacing="7.0">
                <children>
@@ -63,13 +71,14 @@
                </children>
             </HBox>
             <TextField fx:id="text_product_id" layoutX="1124.0" layoutY="10.0" prefHeight="25.0" prefWidth="33.0" promptText="ID" visible="false" />
-            <Label layoutX="440.0" prefHeight="45.0" prefWidth="316.0" text="Product Management" textFill="#ff3795">
+            <Label layoutX="698.0" prefHeight="45.0" prefWidth="316.0" text="Product Management" textFill="#ff3795">
                <font>
                   <Font name="System Bold Italic" size="30.0" />
                </font>
             </Label>
-            <Label layoutX="627.0" layoutY="74.0" onMouseClicked="#load_product" text="Load" />
             <TextField fx:id="text_product_category" layoutX="341.0" layoutY="83.0" promptText="Category" />
+            <Label layoutX="436.0" layoutY="14.0" prefHeight="26.0" prefWidth="80.0" text="Product Total :" />
+            <Label fx:id="label_amount" layoutX="516.0" layoutY="19.0" prefHeight="17.0" prefWidth="97.0" />
          </children>
       </Pane>
    </top>

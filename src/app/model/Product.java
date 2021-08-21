@@ -1,20 +1,23 @@
 package app.model;
 
+import java.text.DecimalFormat;
+
 public class Product {
 
 	int id;
-	String barcode,name,price,expiry,unit,brand,category;
-	
-	public Product(int id, String barcode, String name, String price, String expiry, String unit, String brand,String category) {
+	String price,barcode,name,expiry,unit,brand,category;
+
+	public Product(int id, String barcode, String name, String expiry, String unit, String brand, String category,
+			String price) {
 		super();
 		this.id = id;
 		this.barcode = barcode;
 		this.name = name;
-		this.price = price;
 		this.expiry = expiry;
 		this.unit = unit;
 		this.brand = brand;
 		this.category = category;
+		this.price = price;
 	}
 	public int getId() {
 		return id;
@@ -34,12 +37,15 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	
 	public String getPrice() {
 		return price;
 	}
 	public void setPrice(String price) {
 		this.price = price;
 	}
+
 	public String getExpiry() {
 		return expiry;
 	}

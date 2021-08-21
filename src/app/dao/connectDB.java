@@ -131,7 +131,7 @@ public class connectDB {
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()){   
-                list.add(new Product(Integer.parseInt(rs.getString("pro_id")),rs.getString("barcode"),rs.getString("pro_name"),rs.getString("pro_sale_price"),rs.getString("pro_expiry"),rs.getString("pro_unit"),rs.getString("pro_brand"),rs.getString("pro_category")));       
+                list.add(new Product(Integer.parseInt(rs.getString("pro_id")),rs.getString("barcode"),rs.getString("pro_name"),rs.getString("pro_expiry"),rs.getString("pro_unit"),rs.getString("pro_brand"),rs.getString("pro_category"),rs.getString("pro_sale_price")));       
             }
         } catch (Exception e) {
         	System.out.println(e);

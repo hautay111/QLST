@@ -83,6 +83,11 @@
 	-fx-background-radius: 10;
 }
 
+.btnproduct{
+	-fx-background-radius: 10px 10px;
+	-fx-border-radius: 10px 10px;
+}
+
 .btnsale:hover{
 	
     -fx-text-fill: #5A8F99;
