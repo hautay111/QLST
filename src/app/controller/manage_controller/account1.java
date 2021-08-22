@@ -46,7 +46,7 @@ public class account1 implements Initializable {
 	ResultSet rs = null;
 	PreparedStatement pst = null;
 	int index = -1;
-
+	
 	@FXML
 	private TextField name;
 
@@ -115,6 +115,9 @@ public class account1 implements Initializable {
 
 	@FXML
 	private TableColumn<Account1, Integer> col_status;
+	
+	@FXML
+    private TableColumn<Account1, Integer> col_no;
 
 	ObservableList<Account1> listM;
 	ObservableList<Account1> dataList;
@@ -374,6 +377,7 @@ public class account1 implements Initializable {
 
 	@FXML
 	void search_account() {
+		col_no.setCellValueFactory(new PropertyValueFactory<Account1, Integer>("no"));
 		col_id.setCellValueFactory(new PropertyValueFactory<Account1, Integer>("emp_id"));
 		col_name.setCellValueFactory(new PropertyValueFactory<Account1, String>("emp_name"));
 		col_email.setCellValueFactory(new PropertyValueFactory<Account1, String>("emp_email"));

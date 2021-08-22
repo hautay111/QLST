@@ -20,7 +20,7 @@
 
 <AnchorPane minHeight="-Infinity" prefHeight="714.0" prefWidth="1352.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.employee_controller.Bill_employee">
    <children>
-      <AnchorPane prefHeight="714.0" prefWidth="492.0">
+      <AnchorPane prefHeight="714.0" prefWidth="428.0">
          <children>
             <TextField fx:id="search_bill" layoutX="151.0" layoutY="51.0" prefHeight="32.0" prefWidth="203.0" />
             <Label layoutX="95.0" layoutY="55.0" prefHeight="25.0" prefWidth="42.0" text="Search" textFill="#3dff47" />
@@ -101,9 +101,10 @@
                         <Insets bottom="3.0" left="14.0" right="1.0" top="4.0" />
                      </padding>
                   </HBox>
-                  <HBox alignment="TOP_RIGHT" prefHeight="44.0" prefWidth="345.0" spacing="2.0">
+                  <HBox alignment="TOP_RIGHT" prefHeight="44.0" prefWidth="345.0" spacing="229.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#pay" text="Payment" textFill="RED" />
+                        <Button mnemonicParsing="false" onAction="#pay" prefHeight="25.0" prefWidth="49.0" text="Add" textFill="RED" />
+                        <Button fx:id="print" mnemonicParsing="false" onAction="#Print" prefHeight="35.0" prefWidth="69.0" text="Print" />
                      </children>
                      <padding>
                         <Insets bottom="3.0" left="14.0" right="26.0" top="11.0" />
@@ -116,10 +117,9 @@
                   <TextArea fx:id="bill" editable="false" prefHeight="270.0" prefWidth="391.0" />
                </content>
             </ScrollPane>
-            <Button fx:id="print" layoutX="420.0" layoutY="550.0" mnemonicParsing="false" onAction="#Print" prefHeight="35.0" prefWidth="69.0" text="Print" />
          </children>
       </AnchorPane>
-      <BorderPane layoutX="492.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="835.0">
+      <BorderPane layoutX="432.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="911.0">
          <top>
             <Pane prefHeight="60.0" prefWidth="524.0" BorderPane.alignment="CENTER">
                <children>
@@ -132,13 +132,17 @@
             </Pane>
          </top>
          <center>
-            <TableView fx:id="table_bill" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#getSelected_bill" prefHeight="626.0" prefWidth="835.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="table_bill" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#getSelected_bill" prefHeight="626.0" prefWidth="894.0" BorderPane.alignment="CENTER">
               <columns>
-                  <TableColumn fx:id="col_barcode" prefWidth="196.0" text="Barcode" />
-                <TableColumn fx:id="col_name" prefWidth="244.0" text="Name" />
-                  <TableColumn fx:id="col_type" prefWidth="240.6666259765625" text="Type" />
-                  <TableColumn fx:id="col_price" prefWidth="212.3333740234375" text="Price" />
+                  <TableColumn fx:id="col_barcode" prefWidth="65.0" text="Barcode" />
+                <TableColumn fx:id="col_name" prefWidth="292.0" text="Name" />
+                  <TableColumn fx:id="col_price" prefWidth="208.0" text="Price" />
+                  <TableColumn fx:id="col_type" prefWidth="145.0" text="Brand" />
+                  <TableColumn fx:id="col_category" prefWidth="369.0" text="Category" />
               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
             </TableView>
          </center>
       </BorderPane>

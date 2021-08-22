@@ -46,6 +46,9 @@ public class category_brand1 implements Initializable {
     
     @FXML
     private TableView<Category1> table_cat;
+    
+    @FXML
+    private TableColumn<Category1, Integer> col_no_cat;
 
     @FXML
     private TableColumn<Category1, Integer> col_cat_id;
@@ -130,6 +133,9 @@ public class category_brand1 implements Initializable {
     @FXML
     private TableView<Brand1> table_brand;
 
+    @FXML
+    private TableColumn<Brand1, Integer> col_no_brand;
+    
     @FXML
     private TableColumn<Brand1, Integer> col_brand_id;
 
@@ -228,6 +234,7 @@ public class category_brand1 implements Initializable {
 
 	@FXML
 	void search_cat() {
+		col_no_cat.setCellValueFactory(new PropertyValueFactory<Category1, Integer>("no"));
 		col_cat_id.setCellValueFactory(new PropertyValueFactory<Category1, Integer>("cat_id"));
 		col_cat_name.setCellValueFactory(new PropertyValueFactory<Category1, String>("cat_name"));
 		
@@ -255,6 +262,7 @@ public class category_brand1 implements Initializable {
 	
 	@FXML
 	void search_brand() {
+		col_no_brand.setCellValueFactory(new PropertyValueFactory<Brand1, Integer>("no"));
 		col_brand_id.setCellValueFactory(new PropertyValueFactory<Brand1, Integer>("brand_id"));
 		col_brand_name.setCellValueFactory(new PropertyValueFactory<Brand1, String>("brand_name"));
 		

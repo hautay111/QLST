@@ -84,7 +84,7 @@ public class product implements Initializable{
 
 
     @FXML
-    private TableColumn<Product, String> col_product_number;
+    private TableColumn<Product, Integer> col_product_number;
     
     @FXML
     private TextField text_product_id;
@@ -133,7 +133,7 @@ public class product implements Initializable{
     private ComboBox<String> myComboBox;
     
     public void initialize(URL url, ResourceBundle rb) {
-    UpdateTable_product();
+//    UpdateTable_product();
     search_user_product();
     showamount();
 
@@ -200,6 +200,7 @@ public class product implements Initializable{
 //    	int a = 123;
 //    	System.out.println(formatter.format(a)+" VNĐ");
     	
+    	col_product_number.setCellValueFactory(new PropertyValueFactory<Product,Integer>("no"));
     	col_product_id.setCellValueFactory(new PropertyValueFactory<Product,Integer>("id"));
     	col_product_barcode.setCellValueFactory(new PropertyValueFactory<Product,String>("barcode"));
     	col_product_name.setCellValueFactory(new PropertyValueFactory<Product,String>("name"));
@@ -248,6 +249,7 @@ public class product implements Initializable{
 
     public void UpdateTable_product(){
 
+<<<<<<< HEAD
     	col_product_number.setCellFactory(col -> {
     	  TableCell<Product, String> indexCell = new TableCell<>();
     	  ReadOnlyObjectProperty<TableRow<Product>> rowProperty = indexCell.tableRowProperty();
@@ -267,7 +269,10 @@ public class product implements Initializable{
     	  return indexCell;
     	});
    
+=======
+>>>>>>> 7ad625cc0abf95d972fb673d9ead0bf6aedaf729
     	
+    	col_product_number.setCellValueFactory(new PropertyValueFactory<Product,Integer>("no"));
     	col_product_id.setCellValueFactory(new PropertyValueFactory<Product,Integer>("id"));
     	col_product_barcode.setCellValueFactory(new PropertyValueFactory<Product,String>("barcode"));
     	col_product_name.setCellValueFactory(new PropertyValueFactory<Product,String>("name"));
@@ -327,6 +332,7 @@ public class product implements Initializable{
 	                stage.show();             
 	                UpdateTable_product();
 	                showamount();
+	                search_user_product();
 	                
 	        } catch(Exception e) {
 	        	
@@ -376,7 +382,7 @@ public class product implements Initializable{
             pst= conn.prepareStatement(sql);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Update");
-            UpdateTable_product();
+//            UpdateTable_product();
             search_user_product();
             btn_product_reset();
             showamount();
@@ -388,6 +394,7 @@ public class product implements Initializable{
     @FXML
     void load_product(MouseEvent event) throws SQLException {
     	UpdateTable_product();
+//    	search_user_product();
     	text_product_id.setText("");
     	text_product_name.setText("");
     	text_product_price.setText("");

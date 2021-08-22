@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
-
+import app.controller.manage_controller.product;
 import app.dao.connectDB;
 import app.model.Category1;
 
@@ -195,6 +195,7 @@ public class product_add implements Initializable{
 	            pst.setString(7, value2);
 	            pst.execute();
 	            JOptionPane.showMessageDialog(null, "Users Add succes");
+	            
 	        } catch (Exception e) {
 	        	System.out.println(e);
 	            JOptionPane.showMessageDialog(null, e);
