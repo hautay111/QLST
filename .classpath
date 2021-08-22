@@ -13,6 +13,6 @@
 	<classpathentry kind="lib" path="src/app/dist/lib/javax.mail.jar"/>
 	<classpathentry kind="lib" path="src/app/dist/lib/mysql-connector-java-8.0.25.jar"/>
 	<classpathentry kind="lib" path="src/app/dist/lib/rs2xml.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFx16"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javafx16"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -71,6 +71,9 @@ public class Bill_employee implements Initializable{
     private TableView<Bill> table_bill;
     
     @FXML
+    private TableColumn<Bill,String> col_category;
+    
+    @FXML
     private TextArea bill;
     
     @FXML
@@ -153,6 +156,7 @@ public class Bill_employee implements Initializable{
     	col_type.setCellValueFactory(new PropertyValueFactory<Bill,String>("brand"));
     	col_price.setCellValueFactory(new PropertyValueFactory<Bill,String>("price"));
     	col_barcode.setCellValueFactory(new PropertyValueFactory<Bill,String>("code"));
+    	col_category.setCellValueFactory(new PropertyValueFactory<Bill,String>("category"));
     	
 
 
@@ -183,6 +187,7 @@ public class Bill_employee implements Initializable{
     	col_price.setCellValueFactory(new PropertyValueFactory<Bill,String>("price"));
     	col_barcode.setCellValueFactory(new PropertyValueFactory<Bill,String>("code"));
     	col_type.setCellValueFactory(new PropertyValueFactory<Bill,String>("brand"));
+    	col_category.setCellValueFactory(new PropertyValueFactory<Bill,String>("category"));
 
 	           dataList = connectDB.getDatausers_bill();
 	           table_bill.setItems(dataList);

@@ -248,30 +248,7 @@ public class product implements Initializable{
     
 
     public void UpdateTable_product(){
-
-<<<<<<< HEAD
-    	col_product_number.setCellFactory(col -> {
-    	  TableCell<Product, String> indexCell = new TableCell<>();
-    	  ReadOnlyObjectProperty<TableRow<Product>> rowProperty = indexCell.tableRowProperty();
-    	  ObjectBinding<String> rowBinding = Bindings.createObjectBinding(() -> {
-    	    TableRow<Product> row = rowProperty.get();
-    	    if (row != null) { // can be null during CSS processing
-    	      int rowIndex = row.getIndex();
-    	      if (rowIndex < row.getTableView().getItems().size()) {
-    	        return Integer.toString(rowIndex);
-    	      }
-    	    } 	
-    	   	
-    	
-    	    return null;
-    	  }, rowProperty);
-    	  indexCell.textProperty().bind(rowBinding);
-    	  return indexCell;
-    	});
    
-=======
->>>>>>> 7ad625cc0abf95d972fb673d9ead0bf6aedaf729
-    	
     	col_product_number.setCellValueFactory(new PropertyValueFactory<Product,Integer>("no"));
     	col_product_id.setCellValueFactory(new PropertyValueFactory<Product,Integer>("id"));
     	col_product_barcode.setCellValueFactory(new PropertyValueFactory<Product,String>("barcode"));

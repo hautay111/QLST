@@ -44,7 +44,7 @@ public class connectDB {
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()){   
-                list.add(new Bill(rs.getString("pro_name"),rs.getString("pro_brand"),rs.getString("pro_sale_price"),rs.getString("barcode")));       
+                list.add(new Bill(rs.getString("pro_name"),rs.getString("pro_brand"),rs.getString("pro_sale_price"),rs.getString("barcode"),rs.getString("pro_category")));       
             }
         } catch (Exception e) {
         	System.out.println(e);

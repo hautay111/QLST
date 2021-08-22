@@ -1,24 +1,35 @@
 package app.model;
 
 public class Bill {
+	String name,brand,price,code,category;
 	
-	String name,brand,price,code;
-	
-	public Bill( String name,String brand, String price,String code) {
+	public Bill(String name,String brand, String price,String code,String category) {
 		super();		
 		this.name = name;	
 		this.brand = brand;
 		this.price = price;
 		this.code = code;
-
-
-
-
+		this.category = category;
+		
 	}
 
 	
 	
 	
+	public String getCategory() {
+		return category;
+	}
+
+
+
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+
+
+
 	public String getBrand() {
 		return brand;
 	}
