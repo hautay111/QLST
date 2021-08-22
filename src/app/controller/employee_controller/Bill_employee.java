@@ -72,6 +72,8 @@ public class Bill_employee implements Initializable{
     
     @FXML
     private TableColumn<Bill,String> col_category;
+    @FXML
+    private TableColumn<Bill, Integer> col_no;
     
     @FXML
     private TextArea bill;
@@ -151,7 +153,8 @@ public class Bill_employee implements Initializable{
     
     public void UpdateTable_bill(){
 
-    	
+
+    	col_no.setCellValueFactory(new PropertyValueFactory<Bill,Integer>("no"));
     	col_name.setCellValueFactory(new PropertyValueFactory<Bill,String>("name"));
     	col_type.setCellValueFactory(new PropertyValueFactory<Bill,String>("brand"));
     	col_price.setCellValueFactory(new PropertyValueFactory<Bill,String>("price"));
@@ -183,6 +186,7 @@ public class Bill_employee implements Initializable{
 
     @FXML
     void search_user_bill(){
+    	col_no.setCellValueFactory(new PropertyValueFactory<Bill,Integer>("no"));
     	col_name.setCellValueFactory(new PropertyValueFactory<Bill,String>("name"));
     	col_price.setCellValueFactory(new PropertyValueFactory<Bill,String>("price"));
     	col_barcode.setCellValueFactory(new PropertyValueFactory<Bill,String>("code"));
