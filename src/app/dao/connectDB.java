@@ -45,7 +45,12 @@ public class connectDB {
             
             while (rs.next()){   
 <<<<<<< HEAD
+<<<<<<< HEAD
                 list.add(new Bill(rs.getRow(),rs.getString("pro_name"),rs.getString("pro_brand"),rs.getString("pro_sale_price"),rs.getString("barcode"),rs.getString("pro_category")));       
+=======
+                list.add(new Bill(rs.getRow(), rs.getString("pro_name"), rs.getString("pro_brand"), rs.getString("pro_sale_price"), rs.getString("barcode"), rs.getString("pro_category")));
+//                rs.getRow(),rs.getString("pro_name"),rs.getString("pro_brand"),rs.getString("pro_sale_price"),rs.getString("barcode"),rs.getString("pro_category")
+>>>>>>> 496538b8f440ac0e847f0c4dc0ba0e5044a8076a
 =======
                 list.add(new Bill(rs.getRow(), rs.getString("pro_name"), rs.getString("pro_brand"), rs.getString("pro_sale_price"), rs.getString("barcode"), rs.getString("pro_category")));
 //                rs.getRow(),rs.getString("pro_name"),rs.getString("pro_brand"),rs.getString("pro_sale_price"),rs.getString("barcode"),rs.getString("pro_category")

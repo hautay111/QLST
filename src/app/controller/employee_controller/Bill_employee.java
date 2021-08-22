@@ -75,9 +75,12 @@ public class Bill_employee implements Initializable{
     private TableColumn<Bill,String> col_category;
     @FXML
     private TableColumn<Bill, Integer> col_no;
+<<<<<<< HEAD
     
     @FXML
     private TableColumn<Bill, Integer> col_no;
+=======
+>>>>>>> 496538b8f440ac0e847f0c4dc0ba0e5044a8076a
     
     @FXML
     private TextArea bill;

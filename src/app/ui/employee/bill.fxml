@@ -135,7 +135,11 @@
             <TableView fx:id="table_bill" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#getSelected_bill" prefHeight="626.0" prefWidth="894.0" BorderPane.alignment="CENTER">
               <columns>
 <<<<<<< HEAD
+<<<<<<< HEAD
                   <TableColumn fx:id="col_no" prefWidth="65.0" text="NO" />
+=======
+                  <TableColumn fx:id="col_no" minWidth="0.0" prefWidth="0.0" text="No." />
+>>>>>>> 496538b8f440ac0e847f0c4dc0ba0e5044a8076a
 =======
                   <TableColumn fx:id="col_no" minWidth="0.0" prefWidth="0.0" text="No." />
 >>>>>>> 496538b8f440ac0e847f0c4dc0ba0e5044a8076a
