@@ -65,6 +65,7 @@ public class product_add implements Initializable{
 	        product_combobox_category();
 	        
 	        
+	        
 //	        showamount();
 	        // Code Source in description
 	        } 
@@ -175,17 +176,17 @@ public class product_add implements Initializable{
 	        String sql = "insert into product (barcode,pro_name,pro_sale_price,pro_expiry,pro_unit,pro_brand,pro_category)values(?,?,?,?,?,?,?)";
 	        try {
 	        	
-	            DecimalFormat formatter = new DecimalFormat("###,###,###");
-	            
-	            double money = Double.parseDouble(text_product_price.getText()); 
-	            
-	            String moneyString = formatter.format(money);
-	            System.out.println(moneyString);
-	        	
+//	            DecimalFormat formatter = new DecimalFormat("###,###,###");
+//	            
+//	            double money = Double.parseDouble(text_product_price.getText()); 
+//	            
+//	            String moneyString = formatter.format(money);
+//	            System.out.println(moneyString);
+//	        	
 	            pst = conn.prepareStatement(sql);
 	            pst.setString(1, text_product_barcode.getText());
 	            pst.setString(2, text_product_name.getText());
-	            pst.setString(3, moneyString);
+	            pst.setString(3, text_product_price.getText());
 	            pst.setString(4, text_product_expiry.getText());
 	            String value = combobox_product.getSelectionModel().getSelectedItem().toString();
 	            String value1 = combobox_product_brand.getSelectionModel().getSelectedItem().toString();

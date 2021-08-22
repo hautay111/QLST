@@ -7,6 +7,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -72,6 +73,11 @@ public class Bill_employee implements Initializable{
     
     @FXML
     private TableColumn<Bill,String> col_category;
+    @FXML
+    private TableColumn<Bill, Integer> col_no;
+    
+    @FXML
+    private TableColumn<Bill, Integer> col_no;
     
     @FXML
     private TextArea bill;
@@ -99,6 +105,13 @@ public class Bill_employee implements Initializable{
     bill.setText("----------------------SuperMarket------------------------"+"\n"+
     "Name                Price                Amount              Total"+"\n"+"\n");
 
+         
+
+    int a = 2;
+    double b = 200.2000;
+    double c = a * b;
+    System.out.println(c);
+    
     // Code Source in description
     } 
     
@@ -106,21 +119,33 @@ public class Bill_employee implements Initializable{
     
     int p = 0;
     @FXML
-    void pay(ActionEvent event) {      
+    void pay(ActionEvent event) {    
+        DecimalFormat formatter = new DecimalFormat("###,###,###");           
+//        
+//        String moneyString = formatter.format(text_price.getText());
+//        double money =	Double.parseDouble(moneyString); 
+//        System.out.println(moneyString);
+    	
+    	
     	if (text_amount.getText().trim().equals("")||text_name.getText().trim().equals("")) {
         	JOptionPane.showMessageDialog(null, "Please choose a product or amount");
     	}
     	p++;
-    	int total = 0;
-        int x = Integer.parseInt(text_price.getText());
+    	
+    	double money =	Double.parseDouble(text_price.getText());
         int y = Integer.parseInt(text_amount.getText());
-        total=(x*y);
+        double total=(money*y);
+        
+        String moneyString = formatter.format(total);
+        
+        System.out.println(total);
+        
         ltotal.setText(""+p);
     	    	
         String s=bill.getText();
         
         bill.setText(s+text_name.getText()+"                "+text_price.getText()+"                 "+
-        text_amount.getText()+"                    "+total+"\n"+"---------------------------------------------------------------\n"
+        text_amount.getText()+"                    "+moneyString+" vnđ"+"\n"+"---------------------------------------------------------------\n"
         );
         
         System.out.println(p);
@@ -151,12 +176,15 @@ public class Bill_employee implements Initializable{
     
     public void UpdateTable_bill(){
 
-    	
+
+    	col_no.setCellValueFactory(new PropertyValueFactory<Bill,Integer>("no"));
     	col_name.setCellValueFactory(new PropertyValueFactory<Bill,String>("name"));
     	col_type.setCellValueFactory(new PropertyValueFactory<Bill,String>("brand"));
     	col_price.setCellValueFactory(new PropertyValueFactory<Bill,String>("price"));
     	col_barcode.setCellValueFactory(new PropertyValueFactory<Bill,String>("code"));
     	col_category.setCellValueFactory(new PropertyValueFactory<Bill,String>("category"));
+    	col_no.setCellValueFactory(new PropertyValueFactory<Bill,Integer>("no"));
+    	
     	
 
 
@@ -173,6 +201,8 @@ public class Bill_employee implements Initializable{
             return;
         }
         
+        
+         
         text_name.setText(col_name.getCellData(index).toString());
         text_code.setText(col_barcode.getCellData(index).toString());
         text_price.setText(col_price.getCellData(index).toString());
@@ -183,11 +213,13 @@ public class Bill_employee implements Initializable{
 
     @FXML
     void search_user_bill(){
+    	col_no.setCellValueFactory(new PropertyValueFactory<Bill,Integer>("no"));
     	col_name.setCellValueFactory(new PropertyValueFactory<Bill,String>("name"));
     	col_price.setCellValueFactory(new PropertyValueFactory<Bill,String>("price"));
     	col_barcode.setCellValueFactory(new PropertyValueFactory<Bill,String>("code"));
     	col_type.setCellValueFactory(new PropertyValueFactory<Bill,String>("brand"));
     	col_category.setCellValueFactory(new PropertyValueFactory<Bill,String>("category"));
+    	col_no.setCellValueFactory(new PropertyValueFactory<Bill,Integer>("no"));
 
 	           dataList = connectDB.getDatausers_bill();
 	           table_bill.setItems(dataList);

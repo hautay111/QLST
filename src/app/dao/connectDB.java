@@ -19,7 +19,7 @@ public class connectDB {
     public static Connection ConnectDb(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/qlst","root","");
+            Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/project_qlst","root","");
            // JOptionPane.showMessageDialog(null, "Connection Established");
             System.out.println("ket noi database thanh cong");
             return conn;
@@ -44,7 +44,12 @@ public class connectDB {
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()){   
-                list.add(new Bill(rs.getString("pro_name"),rs.getString("pro_brand"),rs.getString("pro_sale_price"),rs.getString("barcode"),rs.getString("pro_category")));       
+<<<<<<< HEAD
+                list.add(new Bill(rs.getRow(),rs.getString("pro_name"),rs.getString("pro_brand"),rs.getString("pro_sale_price"),rs.getString("barcode"),rs.getString("pro_category")));       
+=======
+                list.add(new Bill(rs.getRow(), rs.getString("pro_name"), rs.getString("pro_brand"), rs.getString("pro_sale_price"), rs.getString("barcode"), rs.getString("pro_category")));
+//                rs.getRow(),rs.getString("pro_name"),rs.getString("pro_brand"),rs.getString("pro_sale_price"),rs.getString("barcode"),rs.getString("pro_category")
+>>>>>>> 496538b8f440ac0e847f0c4dc0ba0e5044a8076a
             }
         } catch (Exception e) {
         	System.out.println(e);
@@ -162,5 +167,8 @@ public class connectDB {
         return list;
     }
 
-  
+ 
+
+    
+    
 }

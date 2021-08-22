@@ -339,23 +339,23 @@ public class product implements Initializable{
     void product_edit(MouseEvent event) {
         try {
         	
-            DecimalFormat formatter = new DecimalFormat("###,###,###");           
-            double money = Double.parseDouble(text_product_price.getText());            
-            String moneyString = formatter.format(money);
-            System.out.println(moneyString);
+//            DecimalFormat formatter = new DecimalFormat("###,###,###");           
+//            double money = Double.parseDouble(text_product_price.getText());            
+//            String moneyString = formatter.format(money);
+//            System.out.println(moneyString);
         	
         	
             conn = connectDB.ConnectDb();
             String value1 = text_product_id.getText();
             String value2 = text_product_name.getText();
-//            String value3 = text_product_price.getText();
+            String value3 = text_product_price.getText();
             String value4 = text_product_expiry.getText();
             String value5 = text_product_unit.getText();
             String value6 = text_product_brand.getText();
             String value7 = text_product_category.getText();
 
             String sql = "update product set pro_name= '"+value2+"',pro_sale_price= '"+
-            		moneyString+"',pro_expiry= '"+value4+"',pro_unit= '"+value5+"',pro_brand= '"+value6+"',pro_category= '"+value7+"' where pro_id = '"+value1+"' ";
+            		value3+"',pro_expiry= '"+value4+"',pro_unit= '"+value5+"',pro_brand= '"+value6+"',pro_category= '"+value7+"' where pro_id = '"+value1+"' ";
             pst= conn.prepareStatement(sql);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Update");
