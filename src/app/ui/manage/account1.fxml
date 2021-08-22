@@ -33,15 +33,15 @@
             <ComboBox fx:id="title" onAction="#box_titlle" prefHeight="25.0" prefWidth="297.0" promptText="Title" />
             <TextField fx:id="user" promptText="Username:" />
             <TextField fx:id="pass" promptText="Password:" />
-            <AnchorPane prefHeight="149.0" prefWidth="254.0">
+            <AnchorPane prefHeight="149.0" prefWidth="297.0">
                <children>
-                  <Button layoutY="36.0" mnemonicParsing="false" onAction="#Add" prefHeight="25.0" prefWidth="76.0" text="ADD" />
-                  <Button layoutX="149.0" layoutY="36.0" mnemonicParsing="false" onAction="#Update" prefHeight="25.0" prefWidth="76.0" text="UPDATE" />
-                  <Button layoutY="84.0" mnemonicParsing="false" onAction="#Delete" prefHeight="25.0" prefWidth="76.0" text="DELETE" />
-                  <Button layoutX="149.0" layoutY="84.0" mnemonicParsing="false" onAction="#Reset" prefHeight="25.0" prefWidth="76.0" text="RESET" />
+                  <Button layoutX="31.0" layoutY="36.0" mnemonicParsing="false" onAction="#Add" prefHeight="25.0" prefWidth="76.0" text="ADD" />
+                  <Button layoutX="179.0" layoutY="36.0" mnemonicParsing="false" onAction="#Update" prefHeight="25.0" prefWidth="76.0" text="UPDATE" />
+                  <Button layoutX="31.0" layoutY="84.0" mnemonicParsing="false" onAction="#Delete" prefHeight="25.0" prefWidth="76.0" text="DELETE" />
+                  <Button layoutX="179.0" layoutY="84.0" mnemonicParsing="false" onAction="#Reset" prefHeight="25.0" prefWidth="76.0" text="RESET" />
                </children>
             </AnchorPane>
-            <TextField fx:id="id" promptText="ID:" visible="false" />
+            <TextField fx:id="id" promptText="ID:" />
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -63,17 +63,16 @@
             </HBox>
             <TableView fx:id="table_account" onMouseClicked="#getSelected" prefHeight="570.0" prefWidth="1003.0">
                <columns>
-                  <TableColumn fx:id="col_no" prefWidth="40.0" text="No." />
-                  <TableColumn fx:id="col_id" prefWidth="48.333343505859375" text="ID" visible="false" />
-                  <TableColumn fx:id="col_name" prefWidth="142.0" text="Name" />
-                  <TableColumn fx:id="col_email" prefWidth="175.0" text="Email" />
-                  <TableColumn fx:id="col_phone" prefWidth="129.0" text="Phone" />
-                  <TableColumn fx:id="col_address" prefWidth="133.33331298828125" text="Address" />
-                  <TableColumn fx:id="col_gender" prefWidth="111.3333740234375" text="Gender" />
-                  <TableColumn fx:id="col_title" prefWidth="122.66668701171875" text="Title" />
-                  <TableColumn fx:id="col_user" prefWidth="132.3333740234375" text="Username" />
-                  <TableColumn fx:id="col_pass" minWidth="0.0" prefWidth="0.0" text="Password" />
-                  <TableColumn fx:id="col_status" prefWidth="104.0" text="Status" />
+                  <TableColumn fx:id="col_id" prefWidth="48.333343505859375" text="ID" />
+                  <TableColumn fx:id="col_name" prefWidth="155.66665649414062" text="Name" />
+                  <TableColumn fx:id="col_email" prefWidth="145.0" text="Email" />
+                  <TableColumn fx:id="col_phone" prefWidth="121.33331298828125" text="Phone" />
+                  <TableColumn fx:id="col_address" prefWidth="140.66668701171875" text="Address" />
+                  <TableColumn fx:id="col_gender" prefWidth="68.66668701171875" text="Gender" />
+                  <TableColumn fx:id="col_title" prefWidth="71.6666259765625" text="Title" />
+                  <TableColumn fx:id="col_user" prefWidth="111.3333740234375" text="Username" />
+                  <TableColumn fx:id="col_pass" prefWidth="83.0" text="Password" />
+                  <TableColumn fx:id="col_status" prefWidth="74.0" text="Status" />
                </columns>
             </TableView>
          </children>
