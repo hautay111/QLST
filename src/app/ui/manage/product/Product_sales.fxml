@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -80,8 +79,6 @@
             </Label>
             <TextField fx:id="text_product_category" layoutX="341.0" layoutY="83.0" promptText="Category" />
             <Label fx:id="label_amount" layoutX="516.0" layoutY="19.0" prefHeight="17.0" prefWidth="97.0" />
-            <TextField fx:id="test" layoutX="415.0" layoutY="24.0" />
-            <ComboBox fx:id="myComboBox" layoutX="1040.0" layoutY="23.0" prefWidth="150.0" />
          </children>
       </Pane>
    </top>

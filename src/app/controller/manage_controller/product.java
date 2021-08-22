@@ -1,5 +1,6 @@
 package app.controller.manage_controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,6 +10,8 @@ import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ResourceBundle;
+
+import app.controller.homepage.Home_Manage;
 import app.controller.manage_controller.product_crud.*;
 import javax.swing.JOptionPane;
 
@@ -16,7 +19,6 @@ import com.mysql.cj.x.protobuf.MysqlxDatatypes.Object;
 
 import app.dao.connectDB;
 import app.model.Category1;
-import app.model.FxUtilTest;
 import app.model.Product;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.ObjectBinding;
@@ -31,6 +33,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
@@ -43,6 +46,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
@@ -149,6 +153,28 @@ public class product implements Initializable{
     ObservableList<Category1> dataList1;
    
     
+//    @FXML
+//    void home(MouseEvent event) throws SQLException, IOException {
+//    	Connection conn=connectDB.ConnectDb();
+//		pst = conn.prepareStatement("select * from employee where emp_id=?");
+//		pst.setString(1,a1);
+//		ResultSet rs = pst.executeQuery();
+//					
+//		
+//		if (rs.next()) {
+//				System.out.println("dang nhap thanh cong");
+//				Stage stage= (Stage) ((Node) event.getSource()).getScene().getWindow();
+//				FXMLLoader loader=new FXMLLoader();
+//				loader.setLocation(getClass().getResource("../../ui/manage/product/Product_sales.fxml"));								
+//				Parent parent=loader.load();
+//				Scene scene=new Scene(parent);				
+//				stage.setScene(scene);			
+//			}else{
+//        		JOptionPane.showMessageDialog(null, "Usename or Password Blank.");	
+//        	}		
+//    }
+    
+    
    void showamount() {
 	   conn = connectDB.ConnectDb();
         try {
@@ -232,14 +258,15 @@ public class product implements Initializable{
     	      if (rowIndex < row.getTableView().getItems().size()) {
     	        return Integer.toString(rowIndex);
     	      }
-    	    }
+    	    } 	
+    	   	
+    	
     	    return null;
     	  }, rowProperty);
     	  indexCell.textProperty().bind(rowBinding);
     	  return indexCell;
     	});
-    	
-    	
+   
     	
     	col_product_id.setCellValueFactory(new PropertyValueFactory<Product,Integer>("id"));
     	col_product_barcode.setCellValueFactory(new PropertyValueFactory<Product,String>("barcode"));
@@ -284,9 +311,12 @@ public class product implements Initializable{
     	text_product_brand.setText("");
     	text_product_barcode.setText("");
     	text_product_category.setText("");
-    	
-		UpdateTable_product();
+    	UpdateTable_product();
     }
+		 
+		
+
+
     @FXML
     void product_add(MouseEvent event) {
 	    try {
@@ -354,8 +384,9 @@ public class product implements Initializable{
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    
     @FXML
-    void load_product(MouseEvent event) {
+    void load_product(MouseEvent event) throws SQLException {
     	UpdateTable_product();
     	text_product_id.setText("");
     	text_product_name.setText("");
@@ -365,7 +396,10 @@ public class product implements Initializable{
     	text_product_brand.setText("");
     	text_product_barcode.setText("");
     	text_product_category.setText("");
-
+    	
+		Connection conn=connectDB.ConnectDb();
+		ResultSet rs = pst.executeQuery();		
+		rs.next();
     }
 
      
